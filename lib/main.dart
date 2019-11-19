@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:wizard_flutter/src/pages/startpage/start_page.dart';
+
+import 'main_controller.dart';
+import 'src/pages/bet_page/bet_page.dart';
+import 'src/pages/game_page/game_page.dart';
+import 'src/pages/setup_page/setup_page.dart';
+import 'src/pages/start_page/start_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -8,13 +13,22 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [],
+      providers: [
+        ChangeNotifierProvider<MainController>.value(value: MainController())
+      ],
       child: MaterialApp(
-        title: 'Flutter Demo',
+        debugShowCheckedModeBanner: false,
+        title: 'Wizard Flutter Version',
         theme: ThemeData(
-          primarySwatch: Colors.blue,
+          primarySwatch: Colors.deepPurple,
+          accentColor: Colors.deepPurpleAccent,
         ),
-        home: StartPage(),
+        routes: {
+          '/': (context) => StartPage(),
+          '/setup': (context) => SetupPage(),
+          '/bet': (context) => BetPage(),
+          '/game': (context) => GamePage(),
+        },
       ),
     );
   }
