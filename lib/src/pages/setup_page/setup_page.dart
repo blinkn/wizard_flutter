@@ -6,6 +6,7 @@ import 'package:wizard_flutter/src/models/player.dart';
 import 'setup_page_controller.dart';
 
 class SetupPage extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<SetupPageController>.value(
@@ -14,7 +15,7 @@ class SetupPage extends StatelessWidget {
         builder: (context, controller, builder) {
           return Scaffold(
               appBar: AppBar(
-                title: Text('Wizard with Provider'),
+                title: Text('Add Players'),
               ),
               body: Consumer<MainController>(
                 builder: (context, mController, widget) {
@@ -35,10 +36,12 @@ class SetupPage extends StatelessWidget {
                           child: Align(
                             alignment: Alignment.bottomCenter,
                             child: RaisedButton(
+                              color: Colors.deepPurple,
+                              textColor: Colors.white,
                               onPressed: () {
-                                controller.handleContinueToBetPage(context);
+                                controller.handleContinueToBidsPage(context);
                               },
-                              child: Text('Continue to Bet Phase'),
+                              child: Text('Continue to Bids Phase'),
                             ),
                           ),
                         ),

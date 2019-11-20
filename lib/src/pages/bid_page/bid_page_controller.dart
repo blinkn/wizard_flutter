@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../../../main_controller.dart';
 
-class BetPageController extends ChangeNotifier {
+class BidPageController extends ChangeNotifier {
 
   void handleContinueToGamePhase(BuildContext context) {
     MainController mController = Provider.of<MainController>(context);

@@ -9,6 +9,7 @@ import '../../../main_controller.dart';
 class SetupPageController extends ChangeNotifier {
 
   void handleAddNewPlayer(BuildContext context) async {
+
     MainController mController = Provider.of<MainController>(context);
     if (mController.players.length < 6) {
 
@@ -44,6 +45,8 @@ class SetupPageController extends ChangeNotifier {
       message: 'Player Removed!',
       duration: Duration(milliseconds: 2000),
       mainButton: FlatButton(
+        color: Colors.black26,
+        textColor: Colors.yellow,
         child: Text('UNDO'),
         onPressed: () {
           mController.addNewPlayer(player);
@@ -56,10 +59,11 @@ class SetupPageController extends ChangeNotifier {
 
   }
 
-  void handleContinueToBetPage(BuildContext context) {
+  void handleContinueToBidsPage(BuildContext context) {
     MainController mController = Provider.of<MainController>(context);
-    mController.currentRoute = '/bet';
-    Navigator.popAndPushNamed(context, '/bet');
+    mController.startRound();
+    mController.currentRoute = '/bids';
+    Navigator.popAndPushNamed(context, '/bids');
   }
 
 }

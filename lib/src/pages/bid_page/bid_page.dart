@@ -3,24 +3,24 @@ import 'package:provider/provider.dart';
 import 'package:wizard_flutter/main_controller.dart';
 import 'package:wizard_flutter/src/models/player.dart';
 
-import 'bet_page_controller.dart';
+import 'bid_page_controller.dart';
 
-class BetPage extends StatelessWidget {
+class BidPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<BetPageController>.value(
-      value: BetPageController(),
-      child: Consumer<BetPageController>(
+    return ChangeNotifierProvider<BidPageController>.value(
+      value: BidPageController(),
+      child: Consumer<BidPageController>(
         builder: (context, controller, builder) {
           return Scaffold(
             appBar: AppBar(
-              title: Text('Bet Phase'),
+              title: Text('Bid Phase'),
             ),
             body: Column(
               children: <Widget>[
                 SizedBox(height: 40),
                 Text(
-                  'Make player\'s bet',
+                  'Make player\'s trick predictions',
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 25),
                 ),
@@ -50,6 +50,8 @@ class BetPage extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.only(bottom: 8.0),
                   child: RaisedButton(
+                    color: Colors.deepPurple,
+                    textColor: Colors.white,
                     onPressed: () {
                       controller.handleContinueToGamePhase(context);
                     },
@@ -66,7 +68,7 @@ class BetPage extends StatelessWidget {
 
   Widget _buildListItem(BuildContext context, Player player) {
     MainController mController = Provider.of<MainController>(context);
-    int playerBetValue = mController.getPlayerBetValue(player: player);
+    int playerBidValue = mController.getPlayerBidValue(player: player);
 
     return Card(
       child: Padding(
@@ -85,7 +87,7 @@ class BetPage extends StatelessWidget {
               children: <Widget>[
                 IconButton(
                   onPressed: () {
-                    mController.setPlayerBetValue(player: player, betValue: playerBetValue - 1);
+                    mController.setPlayerBidValue(player: player, bidValue: playerBidValue - 1);
                   },
                   icon: Icon(
                     Icons.remove,
@@ -94,12 +96,12 @@ class BetPage extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  '$playerBetValue',
+                  '$playerBidValue',
                   style: TextStyle(fontSize: 17),
                 ),
                 IconButton(
                   onPressed: () {
-                    mController.setPlayerBetValue(player: player, betValue: playerBetValue + 1);
+                    mController.setPlayerBidValue(player: player, bidValue: playerBidValue + 1);
                   },
                   icon: Icon(
                     Icons.add,

@@ -5,6 +5,8 @@ import '../../../main_controller.dart';
 
 class StartPageController extends ChangeNotifier {
 
+
+
   void handleStartGame(BuildContext context) {
     MainController mController = Provider.of<MainController>(context);
     mController.currentRoute = '/setup';

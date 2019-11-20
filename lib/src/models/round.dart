@@ -1,14 +1,14 @@
 import 'package:wizard_flutter/src/models/player.dart';
 
-import 'bet.dart';
+import 'bid.dart';
 
 class Round {
 
   int roundNumber;
 
-  List<Bet> bets = List<Bet>();
+  List<Bid> bids = List<Bid>();
   List<Player> players = List<Player>();
 
-  Round(this.roundNumber);
+  Round({this.roundNumber});
 
 }

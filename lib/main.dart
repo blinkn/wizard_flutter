@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'main_controller.dart';
-import 'src/pages/bet_page/bet_page.dart';
+import 'src/pages/bid_page/bid_page.dart';
 import 'src/pages/game_page/game_page.dart';
 import 'src/pages/setup_page/setup_page.dart';
 import 'src/pages/start_page/start_page.dart';
@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         routes: {
           '/': (context) => StartPage(),
           '/setup': (context) => SetupPage(),
-          '/bet': (context) => BetPage(),
+          '/bids': (context) => BidPage(),
           '/game': (context) => GamePage(),
         },
       ),
